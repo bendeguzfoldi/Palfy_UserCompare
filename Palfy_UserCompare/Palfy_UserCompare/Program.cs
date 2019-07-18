@@ -15,16 +15,13 @@ namespace Palfy_UserCompare
             string[] users = File.ReadAllLines("users.csv");
             string[] nevsor = File.ReadAllLines("nevsor.csv");
             string[] nevsor_nevek = nevsor_nevgenerator(nevsor);
+            //string[] users_nevek = users_nevgenerator(users);
             for (int i = 0; i < users.Length; i++)
             {
                 string[] users_temp = users[i].Split(';');
-                string users_lastname = users_temp[0];
-                string[] firstname_temp = users_temp[1].Split(' ');
-                string users_firstname = firstname_temp[0];
-                string users_nev = users_lastname + " " + users_firstname;
-
+                string users_nev = users_temp[0] + " " + users_temp[1];
                 int k = 0;
-                while (k < nevsor.Length && users_nev != nevsor_nevek[k])
+                while (k<nevsor.Length&&users_nev !=nevsor_nevek[k])
                 {
                     k++;
                 }
@@ -33,9 +30,8 @@ namespace Palfy_UserCompare
                 {
                     Console.WriteLine(users_nev + " " + users_temp[2]);
                 }
-
+                
             }
-
             Console.ReadLine();
         }
         //static string[] users_nevgenerator(string[] users)
@@ -55,10 +51,7 @@ namespace Palfy_UserCompare
             for (int i = 0; i < nevsor.Length; i++)
             {
                 string[] temp = nevsor[i].Split(';');
-                string lastname = temp[0];
-                string[] firstname_temp = temp[1].Split(' ');
-                string firstname = firstname_temp[0];
-                ret[i] = lastname + " " + firstname;
+                ret[i] = ret[i] + temp[0] + " " + temp[1];
 
             }
             return ret;
