@@ -1,0 +1,4 @@
+﻿Opening repositories:
+C:\Users\Bendi\Source\Repos\Palfy_UserCompare
+Revert - [master 66dae43] Revert "Egy keresztnevvel, elvileg jo."
+Revert -  1 file changed, 5 insertions(+), 12 deletions(-)

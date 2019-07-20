@@ -21,10 +21,10 @@ namespace Palfy_UserCompare
                 string users_lastname = users_temp[0];
                 string[] firstname_temp = users_temp[1].Split(' ');
                 string users_firstname = firstname_temp[0];
-                string users_nev = users_lastname + " " + users_firstname;
+                string users_nev = kisbetusit(users_lastname) + " " + kisbetusit(users_firstname);
 
                 int k = 0;
-                while (k < nevsor.Length && users_nev != nevsor_nevek[k])
+                while (k < nevsor.Length && users_nev != kisbetusit(nevsor_nevek[k]))
                 {
                     k++;
                 }
@@ -35,6 +35,7 @@ namespace Palfy_UserCompare
                 }
 
             }
+
 
             Console.ReadLine();
         }
@@ -60,6 +61,49 @@ namespace Palfy_UserCompare
                 string firstname = firstname_temp[0];
                 ret[i] = lastname + " " + firstname;
 
+            }
+            return ret;
+        }
+        static string kisbetusit (string nev)
+        {
+            string nevkicsi = nev.ToLower();
+            string ret = string.Empty;
+            for (int i = 0; i < nevkicsi.Length; i++)
+            {
+                char tmp = nevkicsi[i];
+                switch (tmp)
+                {
+                    case 'á':
+                        ret += 'a';
+                        break;
+                    case 'é':
+                        ret += 'e';
+                        break;
+                    case 'í':
+                        ret += 'i';
+                        break;
+                    case 'ó':
+                        ret += 'o';
+                        break;
+                    case 'ö':
+                        ret += 'o';
+                        break;
+                    case 'ő':
+                        ret += 'o';
+                        break;
+                    case 'ú':
+                        ret += 'u';
+                        break;
+                    case 'ü':
+                        ret += 'u';
+                        break;
+                    case 'ű':
+                        ret += 'u';
+                        break;
+                    default:
+                        ret += tmp;
+                        break;
+                }
             }
             return ret;
         }
